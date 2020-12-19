@@ -1,0 +1,28 @@
+{
+  "name": "challenge",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "author": "Nicolás Rodrigues <git@nicorodrigues.com.ar>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev": "ts-node-dev --respawn --transpile-only ./src/index.ts"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "redis": "^3.0.2",
+    "typescript": "3.6.4"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/express": "^4.17.9",
+    "@types/node": "^12.19.9",
+    "@types/redis": "^2.8.28",
+    "ts-node-dev": "^1.1.1",
+    "tslint": "5.11.0"
+  }
+}
