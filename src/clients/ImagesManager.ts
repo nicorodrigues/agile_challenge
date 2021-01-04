@@ -77,23 +77,23 @@ class ImagesManager {
         console.log(`Received ${initial_info.pictures.length * initial_info.pageCount} images aprox..`);
         const errored_pages: number[] = [];
 
-        // if (initial_info.hasMore) {
-        //     for (let i = 2; i <= initial_info.pageCount; i++) {
-        //         try {
-        //             await this.fetchImagesFromPage(i);
-        //         } catch (error) {
-        //             console.log(error.message);
-        //             errored_pages.push(i);
-        //         }
-        //     }
+        if (initial_info.hasMore) {
+            for (let i = 2; i <= initial_info.pageCount; i++) {
+                try {
+                    await this.fetchImagesFromPage(i);
+                } catch (error) {
+                    console.log(error.message);
+                    errored_pages.push(i);
+                }
+            }
 
-        //     while (errored_pages.length > 0) {
-        //         console.log(`Fetching ${errored_pages.length} missing images data...`);
+            while (errored_pages.length > 0) {
+                console.log(`Fetching ${errored_pages.length} missing images data...`);
 
-        //         await this.fetchMissingPages(errored_pages);
-        //         await wait(300);
-        //     }
-        // }
+                await this.fetchMissingPages(errored_pages);
+                await wait(300);
+            }
+        }
     }
 
     async fetchMissingPages(pages: number[]) {
