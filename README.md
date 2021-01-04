@@ -7,7 +7,9 @@ The purpose of this app is to act as a cache proxy between the real API and the 
 This service works by mantaining an indexing list on memory inside the APP and a full data mirroring on a Redis DB. The service refreshes the in-app cache once in a defined period of time, configurable in the ENV.
 
 ```
-Warning: If you're not going to use a password for redis, then don't uncomment the key in the .env file
+Warnings: 
+- If you're not going to use a password for redis, then don't uncomment the key in the .env file
+- The endpoint fetching speed can be configured in the ```.env``` file, for precaution it's using 300ms between API calls.
 ```
 
 As it is, the app will run on port `3000` and will use the endpoints provided.
